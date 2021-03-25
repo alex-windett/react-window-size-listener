@@ -60,11 +60,15 @@ class WindowSizeListener extends React.Component {
    */
   onResize() {
     const windowWidth =
-      window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+      window.innerWidth ||
+      document.documentElement.clientWidth ||
+      document.body.clientWidth;
     const windowHeight =
-      window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+      window.innerHeight ||
+      document.documentElement.clientHeight ||
+      document.body.clientHeight;
 
-    this._listeners.forEach(listener => {
+    this._listeners.forEach((listener) => {
       listener({ windowWidth, windowHeight });
     });
   }
@@ -83,7 +87,7 @@ class WindowSizeListener extends React.Component {
 }
 
 WindowSizeListener.propTypes = {
-  onResize: PropTypes.func.isRequired
+  onResize: PropTypes.func.isRequired,
 };
 
 export function withWindowSizeListener(Component) {
@@ -93,22 +97,29 @@ export function withWindowSizeListener(Component) {
       this.state = {
         windowSize: {
           windowWidth:
-            (typeof window !== 'undefined' && window.innerWidth) ||
-            (typeof document !== 'undefined' &&
-              ((document.documentElement && document.documentElement.clientWidth) ||
-                (typeof document !== 'undefined' && document.body && document.body.clientWidth))) ||
+            (typeof window !== "undefined" && window.innerWidth) ||
+            (typeof document !== "undefined" &&
+              document.documentElement &&
+              document.documentElement.clientWidth) ||
+            (typeof document !== "undefined" &&
+              document.body &&
+              document.body.clientWidth) ||
             null,
           windowHeight:
-            (typeof window !== 'undefined' && window.innerHeight) ||
-            (typeof document !== 'undefined' && (document.documentElement.clientHeight || document.body.clientHeight)) ||
-            null
-        }
+            (typeof window !== "undefined" && window.innerHeight) ||
+            (typeof document !== "undefined" &&
+              document.documentElement.clientHeight) ||
+            (typeof document !== "undefined" && document.body.clientHeight) ||
+            null,
+        },
       };
     }
 
     render() {
       return (
-        <WindowSizeListener onResize={windowSize => this.setState({ windowSize })}>
+        <WindowSizeListener
+          onResize={(windowSize) => this.setState({ windowSize })}
+        >
           <Component {...this.props} windowSize={this.state.windowSize} />
         </WindowSizeListener>
       );

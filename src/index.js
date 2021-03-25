@@ -93,13 +93,13 @@ export function withWindowSizeListener(Component) {
       this.state = {
         windowSize: {
           windowWidth:
-            (window && window.innerWidth) ||
+            (typeof window !== 'undefined' && window.innerWidth) ||
             (document &&
               ((document.documentElement && document.documentElement.clientWidth) ||
                 (document.body && document.body.clientWidth))) ||
             null,
           windowHeight:
-            (window && window.innerHeight) ||
+            (typeof window !== 'undefined' && window.innerHeight) ||
             (document && (document.documentElement.clientHeight || document.body.clientHeight)) ||
             null
         }

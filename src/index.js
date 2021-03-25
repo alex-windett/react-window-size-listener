@@ -94,13 +94,13 @@ export function withWindowSizeListener(Component) {
         windowSize: {
           windowWidth:
             (typeof window !== 'undefined' && window.innerWidth) ||
-            (document &&
+            (typeof document !== 'undefined' && document &&
               ((document.documentElement && document.documentElement.clientWidth) ||
                 (document.body && document.body.clientWidth))) ||
             null,
           windowHeight:
             (typeof window !== 'undefined' && window.innerHeight) ||
-            (document && (document.documentElement.clientHeight || document.body.clientHeight)) ||
+            (typeof document !== 'undefined' && (document.documentElement.clientHeight || document.body.clientHeight)) ||
             null
         }
       };

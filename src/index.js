@@ -96,7 +96,7 @@ export function withWindowSizeListener(Component) {
             (typeof window !== 'undefined' && window.innerWidth) ||
             (typeof document !== 'undefined' &&
               ((document.documentElement && document.documentElement.clientWidth) ||
-                (document.body && document.body.clientWidth))) ||
+                (typeof document !== 'undefined' && document.body && document.body.clientWidth))) ||
             null,
           windowHeight:
             (typeof window !== 'undefined' && window.innerHeight) ||

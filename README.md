@@ -4,10 +4,14 @@ React component for listening to window resize events.
 
 This is ES6 rewrite of [react-window-resize-listener](https://github.com/cesarandreu/react-window-resize-listener) due to deprecation warnings and many developers commented on this issue without getting any response for a while.
 
+---
+
+This is an update to compensate for Next.js SSR.
+
 ## Installation
 
 ```sh
-npm install react-window-size-listener --save
+npm install ssr-react-window-size-listener --save
 ```
 
 ## API
@@ -18,34 +22,34 @@ React component that takes a single onResize callback which is called every time
 
 #### Props
 
-* `void onResize(windowSize)` - Callback that gets called every time the window is resized. It's always called once soon after getting mounted. Receives a `windowSize` param which is an Object with keys `windowHeight` and `windowWidth`, both values are numbers.
+- `void onResize(windowSize)` - Callback that gets called every time the window is resized. It's always called once soon after getting mounted. Receives a `windowSize` param which is an Object with keys `windowHeight` and `windowWidth`, both values are numbers.
 
 #### Example
 
 As regular component:
 
 ```jsx
-import WindowSizeListener from 'react-window-size-listener'
-import ReactDOM from 'react-dom'
-import React from 'react'
+import WindowSizeListener from "ssr-react-window-size-listener";
+import ReactDOM from "react-dom";
+import React from "react";
 
 ReactDOM.render(
   <div>
-    <WindowSizeListener onResize={windowSize => {
-      console.log('Window height', windowSize.windowHeight)
-      console.log('Window width', windowSize.windowWidth)
-    }}/>
+    <WindowSizeListener
+      onResize={(windowSize) => {
+        console.log("Window height", windowSize.windowHeight);
+        console.log("Window width", windowSize.windowWidth);
+      }}
+    />
   </div>,
-  document.getElementById('app')
-)
+  document.getElementById("app")
+);
 ```
 
 alternatively you can render it with children:
 
 ```jsx
-<WindowSizeListener
-  onResize={(windowSize) => console.log(windowSize)}
->
+<WindowSizeListener onResize={(windowSize) => console.log(windowSize)}>
   <h1>Hello world!</h1>
 </WindowSizeListener>
 ```
@@ -53,8 +57,8 @@ alternatively you can render it with children:
 or as Higher Order Component (HOC):
 
 ```jsx
-import React from 'react';
-import { withWindowSizeListener } from 'react-window-size-listener';
+import React from "react";
+import { withWindowSizeListener } from "ssr-react-window-size-listener";
 
 class App extends React.Component {
   render() {
@@ -68,9 +72,7 @@ class App extends React.Component {
 }
 
 export default withWindowSizeListener(App);
-
 ```
-
 
 ### `WindowSizeListener.DEBOUNCE_TIME`
 

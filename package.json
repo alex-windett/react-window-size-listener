@@ -1,17 +1,17 @@
 {
-  "name": "react-window-size-listener",
-  "version": "1.5.3",
+  "name": "ssr-react-window-size-listener",
+  "version": "1.0.0",
   "description": "React component for listening to window resize events",
   "main": "lib/index.js",
-  "author": "Cesar Andreu <cesarandreu@gmail.com>, rewrite by Krunoslav Banovac <kunokdev@gmail.com>",
+  "author": "Alex Windett <alex@windett.co.uk>",
   "license": "MIT",
-  "homepage": "https://github.com/kunokdev/react-window-size-listener",
+  "homepage": "https://github.com/alex-windett/react-window-size-listener",
   "repository": {
     "type": "git",
     "url": "git://github.com/kunokdev/react-window-size-listener.git"
   },
   "bugs": {
-    "url": "https://github.com/kunokdev/react-window-size-listener/issues"
+    "url": "https://github.com/alex-windett/react-window-size-listener/issues"
   },
   "dependencies": {
     "lodash.debounce": "^3.1.1",
